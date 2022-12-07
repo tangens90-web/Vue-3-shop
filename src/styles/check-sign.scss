@@ -1,0 +1,62 @@
+.wrap {
+    position: relative;
+   
+}
+
+.check-sign {
+    position: absolute;
+    background: yellowgreen;
+}
+span{
+  opacity: 1;
+  width: 20px;
+  height: 10px;
+
+  display: block;
+  position: absolute;
+  top:10%;
+  left:72%;
+
+  cursor: pointer;
+  transition: background .4s;
+
+  
+}
+
+#check-part-1 {
+    width: 0;
+    opacity: 0;
+    height: 5px;
+    border-top-left-radius: 150%;    
+    transform:rotate(45deg);	
+    transform-origin: 0 10px;
+    left: 4px;
+    top: 5px;
+  
+  
+}
+
+#check-part-2 {
+    width: 0;
+    height: 5px;    
+    transform: rotate(-45deg);
+    border-top-right-radius: 150%;
+    left: 23px;
+    opacity: 0;
+    top: 14px;
+    transform-origin: 0 10px;
+}
+
+
+.spanInButton .wrap #check-part-2{
+    
+  opacity: 1;
+  width: 20px;
+  transition: width .4s .4s , opacity .3s .4s;
+}
+.spanInButton .wrap #check-part-1{
+ 
+  opacity: 1;
+  width: 15px;
+  transition: width .4s .4s , opacity .3s .4s;
+}
