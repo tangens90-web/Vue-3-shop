@@ -1,12 +1,12 @@
 <template>
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <div class="row justify-content-md-center">
-            <div class="col-3"><aside-block></aside-block></div>
-            <div class="col">
+            <div class="col-3 col_3_medium_size">
+                <aside-block></aside-block>
+            </div>
+            <div class="col col_medium_size">
                 <div class="row">
-                    <Card></Card>
-                    
-                      
+                    <Card></Card>   
             </div>
         </div>
             </div>
@@ -16,52 +16,47 @@
 
 </template>
 
-<script>
-import {useStore } from 'vuex'
+<script setup lang="ts">
+
 import {ref,toRefs,computed,onMounted} from 'vue'
 import AsideBlock from '@/components/AsideBlock.vue'
 import Card from '@/components/Card.vue'
+import { useProducts } from '../store/modules/product' 
 
-export default {
-   
-    setup () {
-       
+        
   
 
-        const store = useStore()
-
-        store.dispatch('getProducts')
+        
+        const storePinia = useProducts()
+        
         
         
         
         
         onMounted(() => {
-            // console.log(store.getters.cart)
-            store.dispatch('loadWishList')
-            store.dispatch('loadCart')
+            storePinia.getProducts()
+            storePinia.loadWishList()
+            storePinia.loadCart()
             })
        
-        const removeFromCartItem = (product)=>{
-            store.dispatch('removeFromCart',product)
-        }
+        
         
        
-        return {
-            
-            removeFromCartItem
-
-        }
-    },
-    components: {
-        AsideBlock,
-        Card
-    }
-}
+       
 
 </script>
 
 <style lang="scss" scoped>
-
+.col_3_medium_size{
+    @media (max-width:1000px){
+        display: none;
+    }
+}
+.col_medium_size{
+    @media (max-width:1000px){
+        width: 100%;
+    }
+}
 
   
 </style>

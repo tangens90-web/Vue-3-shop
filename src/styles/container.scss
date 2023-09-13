@@ -1,0 +1,20 @@
+.container-custom{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    @media (max-width:1368px) {
+        width: 95%;
+    }
+    @media (max-width:768px) {
+        width: 100%;
+    }
+  
+  }
+.container_left_block{
+    width: 80%;
+    margin: 0 auto;
+    font-weight: 700;
+   
+}

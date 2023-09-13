@@ -1,6 +1,5 @@
-.wrap {
-    position: relative;
-   
+.btn-primary{
+  position: inherit;
 }
 
 .check-sign {
@@ -15,8 +14,8 @@ span{
   display: block;
   position: absolute;
   top:10%;
-  left:72%;
-
+  left:80%;
+  z-index: 55;
   cursor: pointer;
   transition: background .4s;
 
@@ -48,13 +47,13 @@ span{
 }
 
 
-.spanInButton .wrap #check-part-2{
+.spanInButton .daw_block #check-part-2{
     
   opacity: 1;
   width: 20px;
   transition: width .4s .4s , opacity .3s .4s;
 }
-.spanInButton .wrap #check-part-1{
+.spanInButton .daw_block #check-part-1{
  
   opacity: 1;
   width: 15px;
