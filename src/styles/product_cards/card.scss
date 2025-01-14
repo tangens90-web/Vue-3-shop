@@ -1,0 +1,29 @@
+.card-template{
+    width: 100%;
+    margin: 50px auto;
+}
+
+.grid-cards{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: repeat(3, 100);
+    grid-gap: 50px;
+    @media (max-width:1368px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    justify-content: center;
+}
+.grid-card{
+
+}
+
+
+.vertical-card{
+    width: 300px;
+    height: 600px;
+
+}
+.gorizontal_card{
+
+}

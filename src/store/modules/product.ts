@@ -1,6 +1,6 @@
-import Products from "../../axios/products"
-import { Product } from "../../types/product"; 
-import {Categories} from "../../types/categories"
+import Products from "@/axios/products"
+import type { Product } from "@/types/product"; 
+import type {Categories} from "@/types/categories"
 function updateLocalStorage(cart) {
     
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -19,6 +19,7 @@ type State={
     wishList:Product[],
     maxQuantity:number,
     price:number,
+    priceFilter:boolean,
 }
 
 export const useProducts = defineStore('tests',{
@@ -29,17 +30,29 @@ export const useProducts = defineStore('tests',{
             wishList:[],
             maxQuantity:3,
             price:0,
+            priceFilter:false
         }),
        getters:{
         calcPrice: state=> state.price
        },
         actions: {
+             async filterProducts(priceFilter){
+                console.log(this.products);
+                
+                if (priceFilter) {
+                    this.products.sort((a,b)=>a.price-b.price)
+                }else{
+                    this.products.sort((a,b)=>b.price-a.price)
+                }
+                
+            },
             async getProducts(){
                 let data = await Products.getProducts()
                 this.products = data
-                console.log(this.products)
+                
                  this.reduceCategories()
-                // commit('getproduct',data)
+                //  this.filterProducts(pricefil)
+               
             },
             //cartItem
                 async loadCart(){
@@ -102,14 +115,14 @@ export const useProducts = defineStore('tests',{
                 updateLocalStorage(this.cart)
             },
             async reduceCategories(){
-                console.log('qRQRwr');
+                
                 this.category = this.products.reduce((categories,item)=>{
                     if(!categories.includes(item.category)){
                         categories.push(item.category)
                     }
                     return categories
                 },[])
-                console.log(this.products);
+               
                 
             },
            

@@ -1,6 +1,6 @@
 <template>
-    <Head></Head>
-    <div class="example formkit-example" ref="example">
+  <Head></Head>
+  <div class="example formkit-example" ref="example">
     <FormKit
       type="form"
       :submit-attrs="{ inputClass: 'button' }"
@@ -17,14 +17,14 @@
         }"
       />
       <FormKit
-      name="email"
-      type="email"
-      label="Email"
-      help="Notice it takes a full second for the data to update."
-      :delay="1000"
-      validation="required|length:5|email"
-      validation-visibility="live"
-    />
+        name="email"
+        type="email"
+        label="Email"
+        help="Notice it takes a full second for the data to update."
+        :delay="1000"
+        validation="required|length:5|email"
+        validation-visibility="live"
+      />
       <FormKit
         type="password"
         label="Password"
@@ -50,29 +50,26 @@
       />
     </FormKit>
   </div>
-      
-  </template>
-  
-  <script setup lang="ts">
-import {computed,ref,onMounted} from 'vue';
-import autoAnimate from "@formkit/auto-animate"
-import Head from "./Head.vue"
-  
+</template>
 
-        const example = ref()
+<script setup lang="ts">
+import { computed, ref, onMounted } from "vue";
+import autoAnimate from "@formkit/auto-animate";
+import Head from "@/components/Head.vue";
+
+const example = ref();
 
 onMounted(() => {
-  example.value.querySelectorAll(".formkit-outer").forEach(autoAnimate)
-})
+  example.value.querySelectorAll(".formkit-outer").forEach(autoAnimate);
+});
 
 const submit = () => {
-  alert("Success!")
-}
-  
-  </script>
-  
-  <style scoped>
-  .example {
+  alert("Success!");
+};
+</script>
+
+<style scoped>
+.example {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
   padding: 2em;
   display: block;
@@ -83,17 +80,18 @@ const submit = () => {
   margin: 2em auto;
 }
 
-   
 [data-dark-mode="true"] .example {
   background: var(--purple-d);
 }
 
 [data-dark-mode="true"] .example:deep(.formkit-help) {
-  color: var(--gray-l)
+  color: var(--gray-l);
 }
-[data-dark-mode="true"] .example:deep(.formkit-message[data-message-type="validation"]),
-[data-dark-mode="true"] .example:deep(.formkit-message[data-message-type="ui"]) {
-  color: var(--ui-red)
+[data-dark-mode="true"]
+  .example:deep(.formkit-message[data-message-type="validation"]),
+[data-dark-mode="true"]
+  .example:deep(.formkit-message[data-message-type="ui"]) {
+  color: var(--ui-red);
 }
 
 .example:deep(button) {
@@ -111,4 +109,4 @@ const submit = () => {
 .example:deep(.formkit-messages + .formkit-actions) {
   margin-top: 1em;
 }
-  </style>
+</style>
